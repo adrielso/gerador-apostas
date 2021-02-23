@@ -8,7 +8,6 @@ function sorteio_random($rangemin,$rangemax,$maxnumsorteio){
     shuffle($range);
     $sort_num = array_slice($range, 0, $maxnumsorteio);
     return $sort_num;
-
 }
 
 function salvar($aposta,$megadezenas,$qtdjogos){
