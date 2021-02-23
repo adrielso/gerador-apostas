@@ -1,6 +1,7 @@
 <?php
 include "class.php";
 
+
     switch (isset($_GET['action'])) {
         case "geradormega":
             if(!empty($_GET['qtdjogos']) AND !empty($_GET['megadezenas'])){
@@ -47,13 +48,13 @@ include "class.php";
             <option>14</option>
             <option>15</option>
         </select>
-        <input type="submit" class="botao" value="Gerar Apostas">
+        <input type="submit" class="botao" value="GERAR">
     </form>
 </div>
 <?php
     if(isset($aposta)){
         echo "<p class=\"tituloapostas\">Apostas Geradas:</p>";
-        echo "<a href=\"inc\salvar.php\"><button class=\"botaosave\">Salvar ou Imprimir</button></a><a href=\"index.php?pg=mega\" ><button class=\"botaoclear\">Limpar Apostas</button></a> <hr>";
+        echo "<a href=\"inc\imprimir.php\"><button class=\"botaosave\">IMPRIMIR</button></a><a href=\"index.php?pg=mega\" ><button class=\"botaoclear\">LIMPAR</button></a> <hr>";
             for($i=0;$i<$qtdjogos;$i++){
                 echo "<table class=\"bola\"><tr>";
                     for ($i2=0;$i2<$megadezenas;$i2++){
@@ -62,12 +63,13 @@ include "class.php";
                 }
                 echo "</tr></table>";       
         echo "<hr>";
-            session_start();
-            $_SESSION['aposta'] = $aposta;
-            $_SESSION['qtdjogos'] = $qtdjogos;
-            $_SESSION['megadezenas'] = $megadezenas;
 
-    }
+session_start();
+$_SESSION['aposta'] = $aposta;
+$_SESSION['qtdjogos'] = $qtdjogos;
+$_SESSION['megadezenas'] = $megadezenas;
+
+}
 ?>
 <div class="confere">
 
