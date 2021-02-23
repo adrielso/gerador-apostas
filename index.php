@@ -14,8 +14,8 @@
             <nav>
                 <a href="index.php?pg=principal">Principal</a>
                 <a href="index.php?pg=mega">Mega-Sena</a>
-                <a href="">Quina</a>
-                <a href="">Lotofácil</a>
+                <a href="index.php?pg=quina">Quina</a>
+                <a href="index.php?pg=loto">Lotofácil</a>
             </nav>
         </div>
     </header>
@@ -30,15 +30,15 @@ if (isset($_GET['pg'])){
             break;
 
         case "loto":
-            include "inc/mega.php";
+            include "inc/loto.php";
             break;
 
-        case "salvar":
-            include "inc/salvar.php";
+        case "quina":
+            include "inc/quina.php";
             break;
 
         default:
-            echo "Olá Mundo!";
+            include "inc/principal.php";
             break;
     }
 }

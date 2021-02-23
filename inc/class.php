@@ -220,11 +220,10 @@ class Aposta {
     }
 }
 
-
-
+/*
 $adicionar = new Mega();
 $consulta1 = $adicionar->adicionaDadosMega(2344,20210213,11,17,25,38,52,57,0,0); 
-
+*/
 /*
 $apostamegarandom = new Aposta();
 

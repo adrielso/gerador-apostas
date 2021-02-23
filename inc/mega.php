@@ -1,8 +1,8 @@
 <?php
 include "class.php";
 
-
-    switch (isset($_GET['action'])) {
+if(isset($_GET['action'])){
+    switch ($_GET['action']) {
         case "geradormega":
             if(!empty($_GET['qtdjogos']) AND !empty($_GET['megadezenas'])){
                 $geraaposta = new Aposta();
@@ -16,21 +16,15 @@ include "class.php";
                 echo "<script>alert('Você deve preencher a quantidade de jogos e dezenas!');</script>";
             }
             break;
-        case "salvarmega":
-            $fp = fopen('arquivo.csv', 'w');
-            
-            foreach ($geraaposta as $linha) {
-                fputcsv($fp, $linha);
-            }
-            fclose($fp);
-            break;
 
             default:
             # code...
             break;
-        }    
+    }
+}
+
 ?>
-<div class="gerador" >
+<div class="gerador">
     <form action="index.php" method="get">
         <input type="hidden" name="pg" value="mega">
         <input type="hidden" name="action" value="geradormega">
@@ -68,9 +62,5 @@ session_start();
 $_SESSION['aposta'] = $aposta;
 $_SESSION['qtdjogos'] = $qtdjogos;
 $_SESSION['megadezenas'] = $megadezenas;
-
 }
 ?>
-<div class="confere">
-
-</div>
