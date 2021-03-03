@@ -1,4 +1,5 @@
 <?php
+@session_start();
 include "class.php";
 
 if(isset($_GET['action'])){
@@ -46,9 +47,10 @@ if(isset($_GET['action'])){
     </form>
 </div>
 <?php
-    if(isset($aposta)){
+    if(isset($aposta) AND !empty($aposta)){
+
         echo "<p class=\"tituloapostas\">Apostas Geradas:</p>";
-        echo "<a href=\"inc\imprimir.php\"><button class=\"botaosave\">IMPRIMIR</button></a><a href=\"index.php?pg=mega\" ><button class=\"botaoclear\">LIMPAR</button></a> <hr>";
+        echo "<a href=\"inc\imprimir.php\" target=\"_blank\"><button class=\"botaosave\">IMPRIMIR</button></a><a href=\"index.php?pg=mega\" ><button class=\"botaoclear\">LIMPAR</button></a> <hr>";
             for($i=0;$i<$qtdjogos;$i++){
                 echo "<table class=\"bola\"><tr>";
                     for ($i2=0;$i2<$megadezenas;$i2++){
@@ -57,10 +59,9 @@ if(isset($_GET['action'])){
                 }
                 echo "</tr></table>";       
         echo "<hr>";
-
-session_start();
-$_SESSION['aposta'] = $aposta;
-$_SESSION['qtdjogos'] = $qtdjogos;
-$_SESSION['megadezenas'] = $megadezenas;
+        $_SESSION['aposta'] = $aposta;
+        $_SESSION['qtdjogos'] = $qtdjogos;
+        $_SESSION['megadezenas'] = $megadezenas;
+        session_commit();
 }
 ?>

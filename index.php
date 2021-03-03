@@ -14,16 +14,19 @@
             <nav>
                 <a href="index.php?pg=principal">Principal</a>
                 <a href="index.php?pg=mega">Mega-Sena</a>
-                <a href="index.php?pg=quina">Quina</a>
-                <a href="index.php?pg=loto">Lotofácil</a>
             </nav>
         </div>
     </header>
     <main>
         <div class="container">
 <?php
-if (isset($_GET['pg'])){
-    switch($_GET['pg']) {
+if (!isset($_GET['pg'])){
+    $pg = "principal";
+}
+else {
+    $pg = $_GET['pg'];
+}
+    switch($pg) {
         
         case "mega":
             include "inc/mega.php";
@@ -36,12 +39,13 @@ if (isset($_GET['pg'])){
         case "quina":
             include "inc/quina.php";
             break;
+            
 
         default:
             include "inc/principal.php";
             break;
     }
-}
+
 ?>
         </div>
 
